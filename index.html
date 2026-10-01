@@ -1,0 +1,82 @@
+<!-- 작성: 2026-10-01 11:28 KST -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>할 일 관리</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>할 일 관리</h1>
+
+    <!-- 진행률 영역 -->
+    <section class="progress" aria-label="진행률">
+      <div class="progress-item progress-total" data-key="total">
+        <div class="progress-head">
+          <span class="progress-label">전체</span>
+          <span class="progress-text">0 / 0 (0%)</span>
+        </div>
+        <div class="bar" role="progressbar" aria-label="전체 진행률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="bar-fill"></div>
+        </div>
+      </div>
+      <div class="progress-grid">
+        <div class="progress-item" data-key="work">
+          <div class="progress-head">
+            <span class="progress-label">업무</span>
+            <span class="progress-text">0 / 0 (0%)</span>
+          </div>
+          <div class="bar" role="progressbar" aria-label="업무 진행률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="bar-fill cat-work"></div>
+          </div>
+        </div>
+        <div class="progress-item" data-key="personal">
+          <div class="progress-head">
+            <span class="progress-label">개인</span>
+            <span class="progress-text">0 / 0 (0%)</span>
+          </div>
+          <div class="bar" role="progressbar" aria-label="개인 진행률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="bar-fill cat-personal"></div>
+          </div>
+        </div>
+        <div class="progress-item" data-key="study">
+          <div class="progress-head">
+            <span class="progress-label">공부</span>
+            <span class="progress-text">0 / 0 (0%)</span>
+          </div>
+          <div class="bar" role="progressbar" aria-label="공부 진행률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="bar-fill cat-study"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 입력 영역 -->
+    <form class="add-form" id="add-form">
+      <input type="text" id="new-text" placeholder="할 일을 입력하세요" aria-label="할 일 내용" autocomplete="off">
+      <select id="new-category" aria-label="카테고리">
+        <option value="work">업무</option>
+        <option value="personal">개인</option>
+        <option value="study">공부</option>
+      </select>
+      <button type="submit">추가</button>
+    </form>
+
+    <!-- 필터 탭 -->
+    <nav class="filters" id="filters" aria-label="카테고리 필터">
+      <button type="button" data-filter="all" class="active">전체</button>
+      <button type="button" data-filter="work">업무</button>
+      <button type="button" data-filter="personal">개인</button>
+      <button type="button" data-filter="study">공부</button>
+    </nav>
+
+    <!-- 할 일 목록 -->
+    <ul class="todo-list" id="todo-list"></ul>
+    <p class="empty" id="empty">할 일이 없습니다</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
